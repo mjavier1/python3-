@@ -1,0 +1,14 @@
+
+import sqlite3
+try:
+	bd = sqlite3.connect("E:\SQLite\SQLiteDatabaseBrowserPortable\emp.db")
+	cursor = bd.cursor()
+	sentencia = "\nSELECT * ,rowid  emptable;"
+ 
+	cursor.execute(sentencia)
+	
+	libros = cursor.fetchall()
+	
+	print(libros)
+except sqlite3.OperationalError as error:
+	print("Error al abrir:", error)
